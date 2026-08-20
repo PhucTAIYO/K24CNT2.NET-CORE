@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\K24CNT2.NET-CORE\\tvcLesson01\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A8AD7339-5ADE-4115-A6F7-7CF9BA5C2197}|tvcLesson01\\tvcLesson01.csproj|d:\\k24cnt2.net-core\\tvclesson01\\tvclesson01\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8AD7339-5ADE-4115-A6F7-7CF9BA5C2197}|tvcLesson01\\tvcLesson01.csproj|solutionrelative:tvclesson01\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96CFD329-ECB1-47B2-B825-B26E9B9A28F5}|tvcLesson01MVC\\tvcLesson01MVC.csproj|d:\\k24cnt2.net-core\\tvclesson01\\tvclesson01mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96CFD329-ECB1-47B2-B825-B26E9B9A28F5}|tvcLesson01MVC\\tvcLesson01MVC.csproj|solutionrelative:tvclesson01mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96CFD329-ECB1-47B2-B825-B26E9B9A28F5}|tvcLesson01MVC\\tvcLesson01MVC.csproj|d:\\k24cnt2.net-core\\tvclesson01\\tvclesson01mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{96CFD329-ECB1-47B2-B825-B26E9B9A28F5}|tvcLesson01MVC\\tvcLesson01MVC.csproj|solutionrelative:tvclesson01mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\K24CNT2.NET-CORE\\tvcLesson01\\tvcLesson01MVC\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "tvcLesson01MVC\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\K24CNT2.NET-CORE\\tvcLesson01\\tvcLesson01MVC\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "tvcLesson01MVC\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-20T12:25:14.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2.NET-CORE\\tvcLesson01\\tvcLesson01MVC\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "tvcLesson01MVC\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\K24CNT2.NET-CORE\\tvcLesson01\\tvcLesson01MVC\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "tvcLesson01MVC\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-20T12:23:38.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\K24CNT2.NET-CORE\\tvcLesson01\\tvcLesson01\\Program.cs",
+              "RelativeDocumentMoniker": "tvcLesson01\\Program.cs",
+              "ToolTip": "D:\\K24CNT2.NET-CORE\\tvcLesson01\\tvcLesson01\\Program.cs",
+              "RelativeToolTip": "tvcLesson01\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-20T12:16:56.342Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
