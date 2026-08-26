@@ -1,0 +1,96 @@
+using hvphuc_lesson2.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace hvphuc_lesson2.Controllers
+{
+    public class ProductController : Controller
+    {
+        // Danh sách sản phẩm dùng chung
+        private static readonly List<Product> products = new List<Product>()
+        {
+            new Product(){ ProductId = 1, ProductName="Trek 820 - 2016", YearRelease=2016, Price=379.99},
+            new Product(){ ProductId = 2, ProductName="Ritchay Timberwolf Frameset - 2016", YearRelease=2016, Price=749.99},
+            new Product(){ ProductId = 3, ProductName="Surly Wednesday Frameset - 2016", YearRelease=2016, Price=999.99},
+            new Product(){ ProductId = 4, ProductName="Trek Fuel EX 8 29 - 2016", YearRelease=2016, Price=2899.99},
+            new Product(){ ProductId = 5, ProductName="Heller Shagamaw Frame - 2016", YearRelease=2016, Price=1320.99},
+            new Product(){ ProductId = 6, ProductName="Surly Ice Cream Truck Frameset - 2016", YearRelease=2016, Price=469.99},
+            new Product(){ ProductId = 7, ProductName="Trek Slash 8 27.5 - 2016", YearRelease=2016, Price=3999.99},
+            new Product(){ ProductId = 8, ProductName="Trek Remedy 29 Carbon Frameset - 2016", YearRelease=2016, Price=1799.99},
+            new Product(){ ProductId = 9, ProductName="Trek Conduit+ - 2016", YearRelease=2016, Price=2999.99},
+            new Product(){ ProductId = 10, ProductName="Surly Straggler - 2016", YearRelease=2016, Price=1549.0},
+            new Product(){ ProductId = 11, ProductName="Surly Straggler 650b - 2016", YearRelease=2016, Price=1680.99},
+            new Product(){ ProductId = 12, ProductName="Electra Townie Original 21D - 2016", YearRelease=2016, Price= 549.99},
+            new Product(){ ProductId = 13, ProductName="Electra Cruiser 1 (24-Inch) - 2016", YearRelease=2016, Price= 269.99},
+            new Product(){ ProductId = 14, ProductName="Electra Girl's Hawaii 1 (16-inch) - 2015/2016", YearRelease=2016, Price = 269.99},
+        };
+
+        // Action mặc định
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        // Đưa dữ liệu dạng Collection ra View (Bản dạng bảng)
+        public IActionResult GetAllProducts()
+        {
+            ViewBag.products = products;
+            return View("Products");
+        }
+
+        // Đưa dữ liệu dạng Object đơn lẻ ra View (Slide 3)
+        public IActionResult GetProducts()
+        {
+            Product p = new Product
+            {
+                ProductId = 1,
+                ProductName = "Trek 820 - 2016",
+                YearRelease = 2016,
+                Price = 379.99
+            };
+
+            // Set cho cả ViewBag.product và ViewBag.productVB để tương thích với các slide
+            ViewBag.product = p;
+            ViewBag.productVB = p;
+            ViewData["productVd"] = p;
+
+            return View();
+        }
+
+        // Truyền tham số cho Action: Details (Slide 4)
+        // Ví dụ: http://localhost:5000/Product/Details?id=10
+        public IActionResult Details(int id)
+        {
+            var p = products.FirstOrDefault(x => x.ProductId == id);
+            if (p == null)
+            {
+                return Content($"Không tìm thấy sản phẩm có Mã SP = {id}");
+            }
+            return View(p);
+        }
+
+        // Truyền tham số cho Action: Search (Slide 4)
+        // Ví dụ: http://localhost:5000/Product/Search?name=Trek
+        public IActionResult Search(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return Json(products);
+            }
+            var results = products.Where(p => p.ProductName.Contains(name, System.StringComparison.OrdinalIgnoreCase)).ToList();
+            return Json(results);
+        }
+
+        // Custom MapControllerRoute (Slide 1 & 2)
+        public JsonResult GetListProduct(int? id)
+        {
+            var list = products;
+            if (id != null)
+            {
+                list = products.Where(p => p.ProductId == id).ToList();
+            }
+            return Json(list);
+        }
+    }
+}

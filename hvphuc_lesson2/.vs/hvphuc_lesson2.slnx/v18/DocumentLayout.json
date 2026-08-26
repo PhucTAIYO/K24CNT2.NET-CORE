@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\K24CNT2.NET-CORE\\hvphuc_lesson2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B2991A1A-B604-C715-01DF-D49E169E1E2C}|hvphuc_lesson2\\hvphuc_lesson2.csproj|d:\\k24cnt2.net-core\\hvphuc_lesson2\\hvphuc_lesson2\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B2991A1A-B604-C715-01DF-D49E169E1E2C}|hvphuc_lesson2\\hvphuc_lesson2.csproj|solutionrelative:hvphuc_lesson2\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2991A1A-B604-C715-01DF-D49E169E1E2C}|hvphuc_lesson2\\hvphuc_lesson2.csproj|d:\\k24cnt2.net-core\\hvphuc_lesson2\\hvphuc_lesson2\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B2991A1A-B604-C715-01DF-D49E169E1E2C}|hvphuc_lesson2\\hvphuc_lesson2.csproj|solutionrelative:hvphuc_lesson2\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2.NET-CORE\\hvphuc_lesson2\\hvphuc_lesson2\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "hvphuc_lesson2\\Views\\_ViewStart.cshtml",
+              "ToolTip": "D:\\K24CNT2.NET-CORE\\hvphuc_lesson2\\hvphuc_lesson2\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "hvphuc_lesson2\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-26T03:09:36.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2.NET-CORE\\hvphuc_lesson2\\hvphuc_lesson2\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "hvphuc_lesson2\\Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\K24CNT2.NET-CORE\\hvphuc_lesson2\\hvphuc_lesson2\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "hvphuc_lesson2\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-26T03:09:32.254Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

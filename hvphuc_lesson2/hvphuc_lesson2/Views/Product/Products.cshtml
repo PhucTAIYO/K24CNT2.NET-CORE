@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">DANH SÁCH SẢN PHẨM</h2>
+    
+    <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Mã sản phẩm</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Năm sản xuất</th>
+                    <th>Giá</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.products != null)
+                {
+                    foreach (var p in ViewBag.products)
+                    {
+                        <tr>
+                            <td>@p.ProductId</td>
+                            <td>@p.ProductName</td>
+                            <td>@p.YearRelease</td>
+                            <td>$ @p.Price</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="text-center text-danger">Không có dữ liệu sản phẩm</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-3">
+        <a href="/Product" class="btn btn-outline-secondary">Quay lại</a>
+    </div>
+</div>

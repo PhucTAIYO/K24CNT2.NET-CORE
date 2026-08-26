@@ -1,0 +1,37 @@
+@model hvphuc_lesson2.Models.Product
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<div class="container mt-4">
+    <div class="card shadow border-primary mx-auto" style="max-width: 600px;">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Chi tiết sản phẩm (Strongly-typed Model)</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover mb-0">
+                <tr>
+                    <th style="width: 40%">Mã sản phẩm:</th>
+                    <td>@Model.ProductId</td>
+                </tr>
+                <tr>
+                    <th>Tên sản phẩm:</th>
+                    <td>@Model.ProductName</td>
+                </tr>
+                <tr>
+                    <th>Năm sản xuất:</th>
+                    <td>@Model.YearRelease</td>
+                </tr>
+                <tr>
+                    <th>Giá bán:</th>
+                    <td class="text-danger fw-bold">$ @Model.Price</td>
+                </tr>
+            </table>
+        </div>
+        <div class="card-footer text-center">
+            <a href="/Product/GetAllProducts" class="btn btn-primary">Danh sách sản phẩm</a>
+            <a href="/Product" class="btn btn-secondary">Trang chủ Product</a>
+        </div>
+    </div>
+</div>

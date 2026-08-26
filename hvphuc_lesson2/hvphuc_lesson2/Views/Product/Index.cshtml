@@ -1,0 +1,84 @@
+@{
+    ViewData["Title"] = "Trang quản lý sản phẩm";
+}
+
+<div class="container mt-4">
+    <div class="text-center mb-5">
+        <h1 class="display-4 text-primary fw-bold">Quản Lý Sản Phẩm</h1>
+        <p class="lead">Demo đầy đủ các tính năng truyền dữ liệu từ Controller ra View trong ASP.NET Core MVC</p>
+    </div>
+
+    <div class="row">
+        <!-- 1. Collection -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm border-primary">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="card-title text-primary"><i class="bi bi-table"></i> 1. Đưa dữ liệu dạng Collection</h5>
+                        <p class="card-text text-muted">Hiển thị danh sách 14 sản phẩm dưới dạng bảng (Table) được lấy từ <code>ViewBag.products</code>.</p>
+                    </div>
+                    <a href="/Product/GetAllProducts" class="btn btn-primary w-100 mt-3">Xem danh sách sản phẩm (Table)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Single Object -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm border-success">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="card-title text-success"><i class="bi bi-box-seam"></i> 2. Đưa dữ liệu dạng Object đơn lẻ</h5>
+                        <p class="card-text text-muted">Truyền 1 đối tượng duy nhất sang View bằng cả <code>ViewBag</code> và <code>ViewData</code> (có ép kiểu).</p>
+                    </div>
+                    <a href="/Product/GetProducts" class="btn btn-success w-100 mt-3">Xem chi tiết đối tượng đơn lẻ</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Query Parameter - Details -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm border-info">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="card-title text-info"><i class="bi bi-info-circle"></i> 3. Truyền tham số cho Action (Details)</h5>
+                        <p class="card-text text-muted">Truyền tham số <code>id</code> qua Query String. Tìm kiếm sản phẩm theo ID và trả về View chi tiết.</p>
+                    </div>
+                    <div class="input-group mt-3">
+                        <input type="number" id="detailId" class="form-control" placeholder="Nhập ID SP (ví dụ: 1 đến 14)" value="2">
+                        <button class="btn btn-info text-white" onclick="goToDetails()">Xem chi tiết</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Query Parameter - Search JSON -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm border-warning">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="card-title text-warning"><i class="bi bi-search"></i> 4. Truyền tham số cho Action (Search JSON)</h5>
+                        <p class="card-text text-muted">Truyền tham số <code>name</code> để lọc sản phẩm. Kết quả được trả về dưới dạng <code>JsonResult</code>.</p>
+                    </div>
+                    <div class="input-group mt-3">
+                        <input type="text" id="searchName" class="form-control" placeholder="Nhập từ khóa (ví dụ: Trek, Surly)" value="Trek">
+                        <button class="btn btn-warning text-dark" onclick="searchProducts()">Tìm kiếm JSON</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function goToDetails() {
+            var id = document.getElementById("detailId").value;
+            window.location.href = "/Product/Details?id=" + id;
+        }
+
+        function searchProducts() {
+            var name = document.getElementById("searchName").value;
+            window.location.href = "/Product/Search?name=" + name;
+        }
+    </script>
+}
