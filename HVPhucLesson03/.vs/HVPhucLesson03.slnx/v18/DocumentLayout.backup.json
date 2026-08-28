@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\K24CNT2.NET-CORE\\HVPhucLesson03\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BFBCB64D-3010-12D0-F4CD-5B55DF0718FF}|HVPhucLesson03\\HVPhucLesson03.csproj|d:\\k24cnt2.net-core\\hvphuclesson03\\hvphuclesson03\\controllers\\hvpproductcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFBCB64D-3010-12D0-F4CD-5B55DF0718FF}|HVPhucLesson03\\HVPhucLesson03.csproj|solutionrelative:hvphuclesson03\\controllers\\hvpproductcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BFBCB64D-3010-12D0-F4CD-5B55DF0718FF}|HVPhucLesson03\\HVPhucLesson03.csproj|d:\\k24cnt2.net-core\\hvphuclesson03\\hvphuclesson03\\views\\hvpproduct\\hvpgetallproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BFBCB64D-3010-12D0-F4CD-5B55DF0718FF}|HVPhucLesson03\\HVPhucLesson03.csproj|solutionrelative:hvphuclesson03\\views\\hvpproduct\\hvpgetallproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BFBCB64D-3010-12D0-F4CD-5B55DF0718FF}|HVPhucLesson03\\HVPhucLesson03.csproj|d:\\k24cnt2.net-core\\hvphuclesson03\\hvphuclesson03\\models\\hvpproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFBCB64D-3010-12D0-F4CD-5B55DF0718FF}|HVPhucLesson03\\HVPhucLesson03.csproj|solutionrelative:hvphuclesson03\\models\\hvpproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BFBCB64D-3010-12D0-F4CD-5B55DF0718FF}|HVPhucLesson03\\HVPhucLesson03.csproj|d:\\k24cnt2.net-core\\hvphuclesson03\\hvphuclesson03\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BFBCB64D-3010-12D0-F4CD-5B55DF0718FF}|HVPhucLesson03\\HVPhucLesson03.csproj|solutionrelative:hvphuclesson03\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "hvpGetAllProduct.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2.NET-CORE\\HVPhucLesson03\\HVPhucLesson03\\Views\\hvpProduct\\hvpGetAllProduct.cshtml",
+              "RelativeDocumentMoniker": "HVPhucLesson03\\Views\\hvpProduct\\hvpGetAllProduct.cshtml",
+              "ToolTip": "D:\\K24CNT2.NET-CORE\\HVPhucLesson03\\HVPhucLesson03\\Views\\hvpProduct\\hvpGetAllProduct.cshtml",
+              "RelativeToolTip": "HVPhucLesson03\\Views\\hvpProduct\\hvpGetAllProduct.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAACYAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-28T04:52:19.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "hvpProductController.cs",
+              "DocumentMoniker": "D:\\K24CNT2.NET-CORE\\HVPhucLesson03\\HVPhucLesson03\\Controllers\\hvpProductController.cs",
+              "RelativeDocumentMoniker": "HVPhucLesson03\\Controllers\\hvpProductController.cs",
+              "ToolTip": "D:\\K24CNT2.NET-CORE\\HVPhucLesson03\\HVPhucLesson03\\Controllers\\hvpProductController.cs",
+              "RelativeToolTip": "HVPhucLesson03\\Controllers\\hvpProductController.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAIA2wFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-28T03:58:26.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HVPproduct.cs",
+              "DocumentMoniker": "D:\\K24CNT2.NET-CORE\\HVPhucLesson03\\HVPhucLesson03\\Models\\HVPproduct.cs",
+              "RelativeDocumentMoniker": "HVPhucLesson03\\Models\\HVPproduct.cs",
+              "ToolTip": "D:\\K24CNT2.NET-CORE\\HVPhucLesson03\\HVPhucLesson03\\Models\\HVPproduct.cs",
+              "RelativeToolTip": "HVPhucLesson03\\Models\\HVPproduct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-28T03:53:27.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\K24CNT2.NET-CORE\\HVPhucLesson03\\HVPhucLesson03\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "HVPhucLesson03\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\K24CNT2.NET-CORE\\HVPhucLesson03\\HVPhucLesson03\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "HVPhucLesson03\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-28T03:51:04.614Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

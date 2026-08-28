@@ -1,0 +1,44 @@
+@model IEnumerable<HVPhucLesson03.Models.HVPproduct>
+@{
+    ViewData["Title"] = "Danh sách sản phẩm - Hoàng Văn Phúc";
+    var products = ViewData["Products"] as List<HVPhucLesson03.Models.HVPproduct>;
+}
+<div class="card">
+    <div class="card-header">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thread>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Year</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thread>
+            <tbody>
+                @foreach (var item in products)
+                {
+                    <tr>
+                        <td>@item.hvpproductID</td>
+                        <td>@item.hvpproductName</td>
+                        <td>@item.hvpyearReLease</td>
+                        <td>@item.hvpprice</td>
+                        <td>
+                            <a href="#" class="btn btn-info">xem chi tiết</a>
+                            <a href="#"class="btn btn-primary">sửa</a>
+                            <a href="#" class="btn btn-danger">xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="5">Tổng số sản phẩm: @products.Count()</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
