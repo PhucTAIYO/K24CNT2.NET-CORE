@@ -1,0 +1,29 @@
+@model hvpLesson4.Models.hvpProduct
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<div class="container mt-4">
+    <h3 class="fw-bold mb-4">Chi tiết sản phẩm</h3>
+    <div class="row">
+        <div class="col-md-5 mb-3">
+            <img src="@Model.Image" class="img-fluid rounded shadow-sm" alt="@Model.Name" style="max-height: 380px; width: 100%; object-fit: cover;" />
+        </div>
+        <div class="col-md-7">
+            <h4 class="fw-bold mb-3">Sản phẩm: @Model.Name</h4>
+            <p class="fs-5 mb-3">
+                <span class="text-muted me-3">Giá gốc: <del>@Model.OldPrice.ToString("N0")</del></span>
+                <span class="fw-bold text-danger">Giá mới @Model.Price.ToString("N0")</span>
+            </p>
+            <div class="mb-3">
+                <h6 class="fw-bold">Mô Tả:</h6>
+                <p class="text-secondary">@Model.Description</p>
+            </div>
+            <p class="mb-2"><strong>Trạng thái:</strong> <span class="badge bg-success">@Model.Status</span></p>
+            <p class="mb-4"><strong>Ngày đăng:</strong> @Model.CreatedDate.ToString("dd/MM/yyyy hh:mm:ss tt")</p>
+
+            <a asp-action="Index" class="btn btn-danger px-4">Về danh sách</a>
+        </div>
+    </div>
+</div>

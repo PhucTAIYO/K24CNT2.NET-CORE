@@ -1,0 +1,28 @@
+@model hvpLesson4.Models.hvpAccount
+
+@{
+    ViewData["Title"] = "Your Profile";
+}
+
+<div class="container mt-4">
+    <h3 class="fw-bold mb-4">Your Profile</h3>
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <img src="@Model.Avatar" class="img-fluid rounded shadow" alt="@Model.FullName" style="max-height: 280px; width: 100%; object-fit: cover;" />
+                </div>
+                <div class="col-md-8">
+                    <h4 class="fw-bold mb-3">Full Name: @Model.FullName</h4>
+                    <p class="mb-2"><strong>Email:</strong> @Model.Email</p>
+                    <p class="mb-2"><strong>Phone:</strong> @Model.Phone</p>
+                    <p class="mb-2"><strong>Address:</strong> @Model.Address</p>
+                    <p class="mb-2"><strong>Bio:</strong> @Model.Bio</p>
+                    <p class="mb-2"><strong>Gender:</strong> @Model.Gender</p>
+                    <p class="mb-3"><strong>Birthday:</strong> @Model.Birthday.ToString("M/d/yyyy hh:mm:ss tt")</p>
+                    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

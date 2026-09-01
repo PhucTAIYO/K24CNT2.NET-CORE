@@ -1,0 +1,40 @@
+@model IEnumerable<hvpLesson4.Models.hvpAccount>
+
+@{
+    ViewData["Title"] = "Danh sách Account";
+}
+
+<div class="container mt-4">
+    <h3 class="fw-bold mb-4">Danh sách Account</h3>
+    <table class="table table-striped table-hover align-middle shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Avatar</th>
+                <th>Họ tên</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+                <th>Địa chỉ</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var acc in Model)
+            {
+                <tr>
+                    <td>@acc.Id</td>
+                    <td>
+                        <img src="@acc.Avatar" alt="@acc.FullName" class="rounded-circle" style="width: 45px; height: 45px; object-fit: cover;" />
+                    </td>
+                    <td class="fw-bold">@acc.FullName</td>
+                    <td>@acc.Email</td>
+                    <td>@acc.Phone</td>
+                    <td>@acc.Address</td>
+                    <td>
+                        <a href="/ho-so-cua-toi?id=@acc.Id" class="btn btn-primary btn-sm">Xem Profile</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
