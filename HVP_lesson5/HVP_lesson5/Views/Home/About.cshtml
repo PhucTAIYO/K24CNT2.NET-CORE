@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Thông tin sinh viên";
+    var hoTen = "Hoàng Văn Phúc";
+    var maSv = "2410900061";
+    var lop = "K24CNT2";
+    var email = "hoangvanphuc@example.com";
+    var phone = "0123456789";
+}
+<div class="alert alert-info" roles="alert">
+    <h1>@ViewData["Title"]</h1>
+    <p><strong>Họ và tên:</strong> @hoTen</p>
+    <p><strong>Mã sinh viên:</strong> @maSv</p>
+    <p><strong>Lớp:</strong> @lop</p>
+    <p><strong>Email:</strong> @email</p>
+    <p><strong>Điện thoại:</strong> @phone</p>
+</div>

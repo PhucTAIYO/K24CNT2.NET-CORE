@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = " cú pháp Razor";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr/>
+@{
+    var total = 7500;
+    var myMessenger = "Bạn nhiều tiền quá!";
+}
+<p>tài khoản của bạn là: $ @total</p>
+<p>@myMessenger</p>
+<h2>cấu trúc if</h2>
+<hr/>
+    @if (total > 5000){
+        <p>Bạn có nhiều tiền!</p>
+    }
+    else if (total > 2000)
+    {
+        <p>Bạn có tiền vừa đủ!</p>
+    }
+    else
+    {
+        <p>Bạn nghèo quá!</p>
+    }
+<h2>cấu trúc vòng lặp for (...)</h2>
+@for (int i = 0; i <= 10; i++)
+{
+    if (i % 2 == 0)
+    {
+        <span class="btn btn-danger">@i</span>
+    }
+    else
+    {
+        <span class="btn btn-success">@i</span>
+    }
+}
+<h2>Mảng</h2>
+@{
+    string[] myArray = { "icon1.jpg", "icon2.jpg", "icon3.jpg", "icon4.jpg" };
+}
+@foreach (var item in myArray)
+{
+    <img src="~/icon/@item" width="150" height="150" />
+}
+
