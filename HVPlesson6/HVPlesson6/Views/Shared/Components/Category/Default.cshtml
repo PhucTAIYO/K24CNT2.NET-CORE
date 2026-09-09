@@ -1,0 +1,9 @@
+@model IEnumerable<hvpLesson6.Models.Category>
+
+<div class="bg-danger text-white" style="margin-top:10px; padding:10px; border-radius:5px;">
+    <strong>📋 Danh mục</strong>
+    @foreach (var c in Model)
+    {
+        <p class="mb-1">@c.CategoryName</p>
+    }
+</div>
