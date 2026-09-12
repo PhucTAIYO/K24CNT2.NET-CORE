@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Thông  tin member";
+    var member = Model as HVPleeson07.Models.DataModels.HVPMember;
+}
+
+<div class="alert alert-info">
+    <h1>@ViewData["Title"]</h1>
+    @* <p>Member id: @ViewBag.Member.HVPMemberId</p>
+    <p>UserName: @ViewBag.Member.HVPUserName</p>
+    <p>UserName: @ViewBag.Member.HVPPassword</p>
+    <p>UserName: @ViewBag.Member.HVPFullName</p>
+    <p>UserName: @ViewBag.Member.HVPEmail</p> *@
+
+    <p>Memberid: @member?.HVPMemberId</p>
+    <p>UserName: @member?.HVPUserName</p>
+    <p>UserName: @member?.HVPPassword</p>
+    <p>UserName: @member?.HVPFullName</p>
+    <p>UserName: @member?.HVPEmail</p>
+</div>
