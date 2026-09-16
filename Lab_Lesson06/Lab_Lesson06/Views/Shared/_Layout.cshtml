@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Demo Lab 06</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <header>
+        <nav class="custom-navbar">
+            <div class="custom-container">
+                <ul class="nav-menu">
+                    <li class="nav-brand-item">
+                        <a asp-controller="Home" asp-action="Index">DEMO LAB</a>
+                    </li>
+                    <li class="active">
+                        <a asp-controller="Home" asp-action="Index">Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Giới thiệu</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Liên hệ</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Sản phẩm</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="custom-container main-wrapper my-3">
+        <div class="row g-3">
+            <!-- Cột bên trái: Danh mục (Partial View) + Banner khuyến mãi -->
+            <div class="col-lg-3 col-md-4">
+                <aside class="sidebar-left">
+                    <!-- 1. Load từ partial view -->
+                    @await Html.PartialAsync("_CategoryPartial")
+
+                    <!-- 2. Banner quảng cáo bên dưới danh mục -->
+                    <div class="sidebar-banner mt-3">
+                        <img src="~/images/banner-km.jpg" alt="Đổi cũ lấy mới siêu khuyến mại" class="img-fluid banner-img" />
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Cột bên phải: Nội dung chính -->
+            <div class="col-lg-9 col-md-8">
+                <main role="main">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="custom-footer">
+        <div class="custom-container">
+            <div class="row">
+                <div class="col-md-6 footer-col mb-3 mb-md-0">
+                    <h5 class="footer-title">GIỚI THIỆU</h5>
+                    <p class="footer-desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis ab suscipit deserunt mollitia reiciendis, nobis iure aliquam velit et laboriosam ducimus veritatis corporis est, dolores aperiam! Officiis impedit provident laboriosam.
+                    </p>
+                </div>
+                <div class="col-md-6 footer-col">
+                    <h5 class="footer-title">LIÊN HỆ</h5>
+                    <p class="footer-desc">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit amet suscipit quasi quisquam impedit magni molestias. Dolores, aliquid commodi ut esse eos voluptatem nisi facilis dolorem, repudiandae culpa ea quidem.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

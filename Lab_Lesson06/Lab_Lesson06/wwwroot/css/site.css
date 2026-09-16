@@ -1,0 +1,242 @@
+/* Global Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    line-height: 1.5;
+}
+
+/* Custom Container */
+.custom-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* 1. Top Navbar */
+.custom-navbar {
+    background-color: #222222;
+    padding: 0;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-menu li a {
+    display: block;
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 14px 18px;
+    transition: all 0.2s ease;
+}
+
+.nav-menu li a:hover {
+    color: #ffffff;
+    background-color: #111111;
+}
+
+.nav-menu li.nav-brand-item a {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #111111;
+    letter-spacing: 0.5px;
+}
+
+.nav-menu li.active a {
+    color: #ffffff;
+    background-color: #0d0d0d;
+    font-weight: 500;
+}
+
+/* 2. Main Layout */
+.main-wrapper {
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+/* 3. Left Sidebar: Category */
+.category-box {
+    border: 1px solid #d2d2d2;
+    border-radius: 2px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.category-header {
+    background-color: #2072b8;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 9px 14px;
+}
+
+.category-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.category-list li {
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.category-list li:last-child {
+    border-bottom: none;
+}
+
+.category-list li a {
+    display: block;
+    padding: 7px 14px;
+    color: #333333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.category-list li a:hover {
+    background-color: #f1f6fa;
+    color: #2072b8;
+    padding-left: 17px;
+}
+
+/* Banner */
+.sidebar-banner {
+    border: 1px solid #d2d2d2;
+    border-radius: 2px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.sidebar-banner .banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-banner:hover .banner-img {
+    transform: scale(1.02);
+}
+
+/* 4. Product Sections (Right column) */
+.product-section {
+    border: 1px solid #d2d2d2;
+    border-radius: 2px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.product-section-header {
+    background-color: #2072b8;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 9px 14px;
+}
+
+.product-section-body {
+    padding: 15px;
+}
+
+/* Product Card */
+.product-card {
+    border: 1px solid #e3e3e3;
+    background: #ffffff;
+    padding: 12px;
+    text-align: center;
+    border-radius: 2px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    border-color: #2072b8;
+}
+
+.product-image-wrap {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.product-image-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image-wrap img {
+    transform: scale(1.04);
+}
+
+.product-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333333;
+    line-height: 1.4;
+    margin-top: auto;
+    text-align: left;
+    padding-top: 8px;
+}
+
+/* 5. Footer */
+.custom-footer {
+    background-color: #2b2b2b;
+    color: #cccccc;
+    padding: 25px 0 35px 0;
+    margin-top: 30px;
+}
+
+.footer-title {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.footer-desc {
+    color: #a0a0a0;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0;
+    text-align: justify;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .product-image-wrap {
+        height: 160px;
+    }
+    .custom-navbar .nav-menu {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-menu li a {
+        width: 100%;
+    }
+}

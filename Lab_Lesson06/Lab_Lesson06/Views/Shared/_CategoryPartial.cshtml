@@ -1,0 +1,30 @@
+@* Partial View: _CategoryPartial.cshtml *@
+@{
+    var categories = new List<string>
+    {
+        "Áo dài",
+        "Áo đông",
+        "Túi xách",
+        "Đồng hồ",
+        "Ví da",
+        "Thắt lưng da",
+        "Tủ lạnh",
+        "Tivi",
+        "Quạt điện",
+        "Lò sưởi"
+    };
+}
+
+<div class="category-box">
+    <div class="category-header">
+        Danh mục sản phẩm
+    </div>
+    <ul class="category-list">
+        @foreach (var item in categories)
+        {
+            <li>
+                <a href="javascript:void(0);">@item</a>
+            </li>
+        }
+    </ul>
+</div>
