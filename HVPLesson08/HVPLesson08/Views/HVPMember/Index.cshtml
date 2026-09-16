@@ -1,0 +1,63 @@
+@model IEnumerable<HVPLesson08.Models.HVPMember>
+
+@{
+    ViewData["Title"] = "Danh sách thành viên";
+}
+
+<div class="card p-3">
+    <div class="card-header">
+        <h1>@ViewData["Title"]</h1> 
+        <a asp-action="HVPCreate">Thêm  mới</a>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HVPMemberId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HVPUserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HVPPassword)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HVPFullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HVPEmail)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HVPMemberId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HVPUserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HVPPassword)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HVPFullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HVPEmail)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "HVPEdit", new { id = item.HVPMemberId }) |
+                        @Html.ActionLink("Xem chi tiết", "HVPDetails", new { id = item.HVPMemberId }) |
+                        @Html.ActionLink("Xóa", "HVPDelete", new { id = item.HVPMemberId })
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
