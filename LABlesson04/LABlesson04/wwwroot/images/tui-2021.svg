@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <rect width="400" height="400" fill="#f8f9fa" rx="12"/>
+  <rect x="20" y="20" width="360" height="360" fill="#ffffff" rx="8" stroke="#dee2e6" stroke-width="2"/>
+  <g transform="translate(110, 60)">
+    <!-- Handbag Handle -->
+    <path d="M50 80 C50 20, 130 20, 130 80" fill="none" stroke="#212529" stroke-width="12" stroke-linecap="round"/>
+    <!-- Handbag Body -->
+    <path d="M30 80 L150 80 L165 210 L15 210 Z" fill="#212529" rx="8"/>
+    <!-- Flap -->
+    <path d="M28 80 L152 80 L140 145 L40 145 Z" fill="#343a40"/>
+    <!-- Gold Lock -->
+    <rect x="80" y="135" width="20" height="20" rx="3" fill="#ffc107" stroke="#e0a800" stroke-width="2"/>
+    <circle cx="90" cy="145" r="3" fill="#333"/>
+    <!-- Red Accent Strap -->
+    <path d="M15 150 Q90 230 165 150" stroke="#dc3545" stroke-width="6" fill="none"/>
+  </g>
+  <text x="200" y="320" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">TÚI THỜI TRANG MẪU MỚI</text>
+  <text x="200" y="350" font-family="Arial, sans-serif" font-size="14" fill="#6c757d" text-anchor="middle">Khóa mạ vàng sang trọng</text>
+</svg>

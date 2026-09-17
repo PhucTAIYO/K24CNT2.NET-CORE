@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <rect width="400" height="400" fill="#fde8f2" rx="12"/>
+  <rect x="20" y="20" width="360" height="360" fill="#ffffff" rx="8" stroke="#fbc5df" stroke-width="2"/>
+  <g transform="translate(100, 60)">
+    <path d="M50 40 C65 20, 135 20, 150 40 L170 80 C175 90, 160 100, 150 90 L140 85 L140 180 L160 220 L120 220 L105 180 L90 180 L75 220 L35 220 L55 180 L55 85 L45 90 C35 100, 20 90, 25 80 Z" fill="#d63384" opacity="0.85"/>
+    <circle cx="100" cy="110" r="22" fill="#fff" opacity="0.9"/>
+    <path d="M90 110 Q100 95 110 110 Q100 125 90 110" fill="#ff4081"/>
+    <path d="M40 210 Q100 230 160 210" stroke="#a61e4d" stroke-width="4" fill="none"/>
+  </g>
+  <text x="200" y="320" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#d63384" text-anchor="middle">ĐỒ BƠI TRẺ EM NỮ</text>
+  <text x="200" y="350" font-family="Arial, sans-serif" font-size="14" fill="#6c757d" text-anchor="middle">Họa tiết dễ thương màu hồng</text>
+</svg>

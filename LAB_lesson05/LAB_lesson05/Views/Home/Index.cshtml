@@ -1,0 +1,32 @@
+@model IEnumerable<LAB_lesson05.Models.Product>
+@{
+    ViewData["Title"] = "Trang chủ - Cửa hàng sản phẩm";
+}
+
+<!-- Section 1: Sản phẩm mới nhất (Load từ View Action) -->
+<div class="product-section">
+    <div class="section-header">
+        Sản phẩm mới nhất
+    </div>
+    <div class="row g-3 mt-1">
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 col-sm-6">
+                    <div class="card product-card h-100">
+                        <div class="product-img-wrapper">
+                            <img src="@item.Image" class="card-img-top product-img" alt="@item.Name">
+                        </div>
+                        <div class="card-body text-center d-flex flex-column justify-content-center">
+                            <h6 class="product-title">@item.Name</h6>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<!-- Section 2: Khung sản phẩm phía dưới (Load từ ViewComponent HotProduct) -->
+@await Component.InvokeAsync("HotProduct")

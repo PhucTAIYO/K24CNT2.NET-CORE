@@ -1,0 +1,22 @@
+@model IEnumerable<LAB_lesson05.Models.Product>
+
+<div class="product-section mt-4">
+    <div class="section-header">
+        Sản phẩm nổi bật
+    </div>
+    <div class="row g-3 mt-1">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 col-sm-6">
+                <div class="card product-card h-100">
+                    <div class="product-img-wrapper">
+                        <img src="@item.Image" class="card-img-top product-img" alt="@item.Name">
+                    </div>
+                    <div class="card-body text-center d-flex flex-column justify-content-center">
+                        <h6 class="product-title">@item.Name</h6>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
