@@ -1,0 +1,55 @@
+@model IEnumerable<HVP_Lesson09.Models.DataModels.HvpMember>
+
+@{
+    ViewData["Title"] = "Danh sách thành viên";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>@ViewData["Title"]</h2>
+    <a asp-action="Create" class="btn btn-success">+ Thêm mới thành viên</a>
+</div>
+
+<div class="table-responsive shadow-sm">
+    <table class="table table-bordered table-striped table-hover mb-0">
+        <thead class="table-primary">
+            <tr>
+                <th>Mã TV</th>
+                <th>Tên đăng nhập</th>
+                <th>Mật khẩu</th>
+                <th>Hộp thư điện tử</th>
+                <th>Số điện thoại</th>
+                <th>Họ và tên</th>
+                <th>Ngày sinh</th>
+                <th class="text-center">Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.HvpMemberId</td>
+                        <td><strong>@item.HvpUserName</strong></td>
+                        <td><code>@item.HvpPassword</code></td>
+                        <td>@item.HvpEmail</td>
+                        <td>@item.HvpPhoneNumber</td>
+                        <td>@item.HvpFullName</td>
+                        <td>@item.HvpBirthday</td>
+                        <td class="text-center">
+                            <a asp-action="Edit" asp-route-id="@item.HvpMemberId" class="btn btn-sm btn-outline-primary">Sửa</a>
+                            <a asp-action="Details" asp-route-id="@item.HvpMemberId" class="btn btn-sm btn-outline-info">Chi tiết</a>
+                            <a asp-action="Delete" asp-route-id="@item.HvpMemberId" class="btn btn-sm btn-outline-danger">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="8" class="text-center text-muted py-3">Chưa có dữ liệu thành viên</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

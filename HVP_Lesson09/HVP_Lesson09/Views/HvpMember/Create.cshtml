@@ -1,0 +1,72 @@
+@model HVP_Lesson09.Models.DataViewModels.HvpMemberRegister
+
+@{
+    ViewData["Title"] = "Thêm thành viên mới";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm border-0 mt-3">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">@ViewData["Title"] (Data Annotations)</h4>
+            </div>
+            <div class="card-body p-4">
+                <form asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="HvpMemberId" class="form-label font-weight-bold"></label>
+                        <input asp-for="HvpMemberId" class="form-control" placeholder="Nhập mã hoặc để trống tự tăng" />
+                        <span asp-validation-for="HvpMemberId" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="HvpUserName" class="form-label font-weight-bold"></label>
+                        <input asp-for="HvpUserName" class="form-control" placeholder="Nhập tên đăng nhập (3 - 20 ký tự)" />
+                        <span asp-validation-for="HvpUserName" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="HvpPassword" class="form-label font-weight-bold"></label>
+                        <input asp-for="HvpPassword" type="password" class="form-control" placeholder="Nhập mật khẩu" />
+                        <span asp-validation-for="HvpPassword" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="HvpEmail" class="form-label font-weight-bold"></label>
+                        <input asp-for="HvpEmail" class="form-control" placeholder="example@domain.com" />
+                        <span asp-validation-for="HvpEmail" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="HvpPhoneNumber" class="form-label font-weight-bold"></label>
+                        <input asp-for="HvpPhoneNumber" class="form-control" placeholder="0xxxxxxxxx (10 chữ số)" />
+                        <span asp-validation-for="HvpPhoneNumber" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="HvpFullName" class="form-label font-weight-bold"></label>
+                        <input asp-for="HvpFullName" class="form-control" placeholder="Nhập họ và tên đầy đủ" />
+                        <span asp-validation-for="HvpFullName" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="HvpBirthday" class="form-label font-weight-bold"></label>
+                        <input asp-for="HvpBirthday" type="date" class="form-control" />
+                        <span asp-validation-for="HvpBirthday" class="text-danger small"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+                        <button type="submit" class="btn btn-primary px-4">Đăng ký thành viên</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

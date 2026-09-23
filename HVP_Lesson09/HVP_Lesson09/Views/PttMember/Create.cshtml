@@ -1,0 +1,72 @@
+@model HVP_Lesson09.Models.DataViewModels.PttMemberRegister
+
+@{
+    ViewData["Title"] = "Thanh vien moi";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>PttMemberRegister</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="PttMemberId" class="control-label"></label>
+                <input asp-for="PttMemberId" class="form-control" />
+                <span asp-validation-for="PttMemberId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="PttUserName" class="control-label"></label>
+                <input asp-for="PttUserName" class="form-control" />
+                <span asp-validation-for="PttUserName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="PttPassword" class="control-label"></label>
+                <input asp-for="PttPassword" type="password" class="form-control" />
+                <span asp-validation-for="PttPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="PttEmail" class="control-label"></label>
+                <input asp-for="PttEmail" class="form-control" />
+                <span asp-validation-for="PttEmail" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="PttPhoneNumber" class="control-label"></label>
+                <input asp-for="PttPhoneNumber" class="form-control" />
+                <span asp-validation-for="PttPhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="PttFullName" class="control-label"></label>
+                <input asp-for="PttFullName" class="form-control" />
+                <span asp-validation-for="PttFullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="PttBirthday" class="control-label"></label>
+                <input asp-for="PttBirthday" type="date" class="form-control" />
+                <span asp-validation-for="PttBirthday" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

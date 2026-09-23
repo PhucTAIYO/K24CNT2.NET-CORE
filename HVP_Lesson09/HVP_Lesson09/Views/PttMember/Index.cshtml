@@ -1,0 +1,77 @@
+@model IEnumerable<HVP_Lesson09.Models.DataModels.PttMember>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PttMemberId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PttUserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PttPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PttEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PttPhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PttFullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PttBirthday)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PttMemberId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PttUserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PttPassword)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PttEmail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PttPhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PttFullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PttBirthday)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.PttMemberId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.PttMemberId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.PttMemberId">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
