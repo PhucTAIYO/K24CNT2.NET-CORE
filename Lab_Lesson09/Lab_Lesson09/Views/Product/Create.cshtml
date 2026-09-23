@@ -1,0 +1,172 @@
+@model Lab_Lesson09.Models.Product
+
+@{
+    ViewData["Title"] = "Thêm mới sản phẩm";
+}
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-9 col-md-11">
+            <nav aria-label="breadcrumb" class="mb-3">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index">Sản phẩm</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Thêm mới</li>
+                </ol>
+            </nav>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white py-3">
+                    <h4 class="mb-0 fw-bold">
+                        <i class="bi bi-plus-circle-fill me-2"></i>Thêm mới sản phẩm
+                    </h4>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Create" method="post" enctype="multipart/form-data" novalidate id="productCreateForm">
+                        @Html.AntiForgeryToken()
+
+                        <!-- Validation Summary -->
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-4 shadow-sm" role="alert">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                            <strong>Vui lòng kiểm tra lại các thông tin sau:</strong>
+                        </div>
+
+                        <div class="row g-3">
+                            <!-- Tên sản phẩm -->
+                            <div class="col-md-12">
+                                <label asp-for="Name" class="form-label fw-bold">
+                                    Tên sản phẩm <span class="text-danger">*</span>
+                                </label>
+                                <input asp-for="Name" class="form-control form-control-lg" placeholder="Nhập tên sản phẩm (6 - 150 ký tự)..." />
+                                <span asp-validation-for="Name" class="text-danger small"></span>
+                                <div class="form-text">Tên sản phẩm bắt buộc nhập, độ dài từ 6 đến 150 ký tự.</div>
+                            </div>
+
+                            <!-- Danh mục sản phẩm (ComboBox) -->
+                            <div class="col-md-6">
+                                <label asp-for="CategoryId" class="form-label fw-bold">
+                                    Danh mục sản phẩm <span class="text-danger">*</span>
+                                </label>
+                                <select asp-for="CategoryId" asp-items="ViewBag.CategoryId" class="form-select form-select-lg">
+                                    <option value="">-- Vui lòng chọn danh mục --</option>
+                                </select>
+                                <span asp-validation-for="CategoryId" class="text-danger small"></span>
+                                <div class="form-text">Chọn danh mục từ danh sách các đối tượng Category.</div>
+                            </div>
+
+                            <!-- Hình ảnh sản phẩm (Upload file) -->
+                            <div class="col-md-6">
+                                <label asp-for="ImageFile" class="form-label fw-bold">
+                                    Hình ảnh sản phẩm <span class="text-danger">*</span>
+                                </label>
+                                <input asp-for="ImageFile" type="file" class="form-control form-control-lg" id="imageInput" accept=".jpg,.jpeg,.png,.gif,.webp" />
+                                <span asp-validation-for="ImageFile" class="text-danger small"></span>
+                                <div class="form-text">Bắt buộc chọn và upload vào thư mục <code>wwwroot/products</code> (.jpg, .jpeg, .png, .gif, .webp).</div>
+                            </div>
+
+                            <!-- Xem trước hình ảnh -->
+                            <div class="col-12" id="previewContainer" style="display: none;">
+                                <label class="form-label fw-semibold text-muted">Xem trước ảnh tải lên:</label>
+                                <div class="p-2 border rounded bg-light d-inline-block">
+                                    <img id="imagePreview" src="#" alt="Preview" class="rounded img-fluid" style="max-height: 180px; object-fit: contain;" />
+                                </div>
+                            </div>
+
+                            <!-- Giá chuẩn -->
+                            <div class="col-md-6">
+                                <label asp-for="Price" class="form-label fw-bold">
+                                    Giá chuẩn (VNĐ) <span class="text-danger">*</span>
+                                </label>
+                                <div class="input-group input-group-lg">
+                                    <input asp-for="Price" type="number" step="1000" min="100000" class="form-control" id="priceInput" placeholder="Ví dụ: 15000000" />
+                                    <span class="input-group-text bg-light">VNĐ</span>
+                                </div>
+                                <span asp-validation-for="Price" class="text-danger small"></span>
+                                <div class="form-text">Giá chuẩn tối thiểu phải từ <strong>100.000 VNĐ</strong>.</div>
+                            </div>
+
+                            <!-- Giá khuyến mãi -->
+                            <div class="col-md-6">
+                                <label asp-for="SalePrice" class="form-label fw-bold">
+                                    Giá khuyến mãi (VNĐ) <span class="text-danger">*</span>
+                                </label>
+                                <div class="input-group input-group-lg">
+                                    <input asp-for="SalePrice" type="number" step="1000" min="0" class="form-control" id="salePriceInput" placeholder="Ví dụ: 13000000" />
+                                    <span class="input-group-text bg-light">VNĐ</span>
+                                </div>
+                                <span asp-validation-for="SalePrice" class="text-danger small"></span>
+                                <div class="form-text" id="salePriceHint">
+                                    Không âm và phải nhỏ hơn giá chuẩn ít nhất 10% (tối đa 90% giá chuẩn).
+                                </div>
+                            </div>
+
+                            <!-- Mô tả sản phẩm -->
+                            <div class="col-12">
+                                <label asp-for="Description" class="form-label fw-bold">
+                                    Mô tả chi tiết <span class="text-danger">*</span>
+                                </label>
+                                <textarea asp-for="Description" class="form-control" rows="5" placeholder="Nhập mô tả sản phẩm (tối đa 1500 ký tự)..."></textarea>
+                                <span asp-validation-for="Description" class="text-danger small"></span>
+                                <div class="form-text">
+                                    Không vượt quá 1500 ký tự. Không được chứa các từ nhạy cảm (như: <em>die, admin, fack...</em>).
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4" />
+
+                        <!-- Nút bấm -->
+                        <div class="d-flex justify-content-end gap-2">
+                            <a asp-action="Index" class="btn btn-outline-secondary btn-lg px-4">
+                                <i class="bi bi-arrow-left me-1"></i> Quay lại
+                            </a>
+                            <button type="submit" class="btn btn-primary btn-lg px-5 shadow-sm">
+                                <i class="bi bi-check2-circle me-1"></i> Lưu sản phẩm
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Preview hình ảnh khi người dùng chọn file
+        document.getElementById('imageInput').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            const previewContainer = document.getElementById('previewContainer');
+            const imagePreview = document.getElementById('imagePreview');
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    imagePreview.src = event.target.result;
+                    previewContainer.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.src = '#';
+                previewContainer.style.display = 'none';
+            }
+        });
+
+        // Hỗ trợ hiển thị gợi ý giá khuyến mãi tối đa
+        const priceInput = document.getElementById('priceInput');
+        const salePriceHint = document.getElementById('salePriceHint');
+
+        function updateSalePriceHint() {
+            const price = parseFloat(priceInput.value);
+            if (!isNaN(price) && price >= 100000) {
+                const maxSale = Math.floor(price * 0.9);
+                salePriceHint.innerHTML = `<span class="text-primary fw-semibold"><i class="bi bi-info-circle me-1"></i>Với giá chuẩn ${price.toLocaleString('vi-VN')} đ, giá khuyến mãi hợp lệ tối đa là <strong>${maxSale.toLocaleString('vi-VN')} đ</strong> (giảm ít nhất 10%).</span>`;
+            } else {
+                salePriceHint.innerHTML = 'Không âm và phải nhỏ hơn giá chuẩn ít nhất 10% (tối đa 90% giá chuẩn).';
+            }
+        }
+
+        priceInput.addEventListener('input', updateSalePriceHint);
+        updateSalePriceHint();
+    </script>
+}

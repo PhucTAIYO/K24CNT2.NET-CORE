@@ -1,0 +1,72 @@
+@model Lab_Lesson09.Models.Product
+
+@{
+    ViewData["Title"] = "Xác nhận xóa sản phẩm";
+}
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <nav aria-label="breadcrumb" class="mb-3">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index">Sản phẩm</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Xóa sản phẩm</li>
+                </ol>
+            </nav>
+
+            <div class="card shadow-sm border-danger">
+                <div class="card-header bg-danger text-white py-3">
+                    <h5 class="mb-0 fw-bold">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>Xác nhận xóa sản phẩm
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="alert alert-warning" role="alert">
+                        <i class="bi bi-exclamation-circle-fill me-2"></i>
+                        <strong>Cảnh báo:</strong> Bạn có chắc chắn muốn xóa sản phẩm này không? Thao tác này sẽ không thể khôi phục lại.
+                    </div>
+
+                    <div class="row g-4 align-items-center mt-2">
+                        <div class="col-md-4 text-center">
+                            @if (!string.IsNullOrEmpty(Model.Image))
+                            {
+                                <img src="~/products/@Model.Image" alt="@Model.Name" 
+                                     class="img-fluid rounded border shadow-sm" 
+                                     style="max-height: 180px; object-fit: contain;" 
+                                     onerror="this.src='https://placehold.co/200x150?text=No+Image'" />
+                            }
+                            else
+                            {
+                                <div class="py-4 bg-light rounded border text-muted">
+                                    <i class="bi bi-image fs-1 d-block"></i>
+                                    Không có ảnh
+                                </div>
+                            }
+                        </div>
+                        <div class="col-md-8">
+                            <h4 class="fw-bold text-dark">@Model.Name</h4>
+                            <p class="text-muted mb-2">Mã sản phẩm: <span class="badge bg-secondary">#@Model.Id</span></p>
+                            <p class="mb-2">Danh mục: <span class="badge bg-info text-dark">@(Model.Category?.Name ?? "Chưa phân loại")</span></p>
+                            <p class="mb-2">Giá chuẩn: <span class="fw-bold">@Model.Price.ToString("N0") VNĐ</span></p>
+                            <p class="mb-2">Giá khuyến mãi: <span class="fw-bold text-danger">@Model.SalePrice.ToString("N0") VNĐ</span></p>
+                            <p class="text-muted small text-truncate" style="max-width: 450px;">Mô tả: @Model.Description</p>
+                        </div>
+                    </div>
+
+                    <hr class="my-4" />
+
+                    <form asp-action="Delete" method="post" class="d-flex justify-content-end gap-2">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" asp-for="Id" />
+                        <a asp-action="Index" class="btn btn-outline-secondary btn-lg px-4">
+                            <i class="bi bi-x-circle me-1"></i> Hủy thao tác
+                        </a>
+                        <button type="submit" class="btn btn-danger btn-lg px-4 shadow-sm">
+                            <i class="bi bi-trash-fill me-1"></i> Xác nhận xóa vĩnh viễn
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
