@@ -1,0 +1,71 @@
+@model HvpLesson12.Models.Product
+
+@{
+    ViewData["Title"] = "Thêm mới sản phẩm";
+}
+
+<div class="container py-3">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-success text-white">
+            <h4 class="mb-0">Thêm mới sản phẩm</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label fw-bold"></label>
+                            <input asp-for="Name" class="form-control" placeholder="Nhập tên sản phẩm..." />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Chọn hình ảnh sản phẩm</label>
+                            <input type="file" name="file" class="form-control" accept="image/*" />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Descriptions" class="form-label fw-bold"></label>
+                            <textarea asp-for="Descriptions" class="form-control" rows="4" placeholder="Nhập mô tả sản phẩm..."></textarea>
+                            <span asp-validation-for="Descriptions" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="CategoryId" class="form-label fw-bold"></label>
+                            <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.CategoryId">
+                                <option value="">-- Chọn danh mục --</option>
+                            </select>
+                            <span asp-validation-for="CategoryId" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Price" class="form-label fw-bold"></label>
+                            <input asp-for="Price" class="form-control" type="number" step="any" placeholder="0" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="SalePrice" class="form-label fw-bold"></label>
+                            <input asp-for="SalePrice" class="form-control" type="number" step="any" placeholder="0" />
+                            <span asp-validation-for="SalePrice" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Status" class="form-label fw-bold"></label>
+                            <select asp-for="Status" class="form-select">
+                                <option value="1">Hiển thị (1)</option>
+                                <option value="0">Tạm ẩn (0)</option>
+                            </select>
+                            <span asp-validation-for="Status" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                    <input type="submit" value="Lưu lại" class="btn btn-sm btn-success px-4" />
+                    <a class="btn btn-sm btn-primary px-3" asp-action="Index">Danh sách</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

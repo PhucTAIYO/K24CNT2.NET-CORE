@@ -1,0 +1,44 @@
+@model HvpLesson12.Models.Category
+
+@{
+    ViewData["Title"] = "Xóa danh mục";
+}
+
+<div class="container py-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0">Xác nhận xóa danh mục?</h4>
+                </div>
+                <div class="card-body">
+                    <p class="text-danger">Bạn có chắc chắn muốn xóa danh mục này? Mọi sản phẩm thuộc danh mục cũng có thể bị ảnh hưởng.</p>
+                    <dl class="row">
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Name)</dt>
+                        <dd class="col-sm-8 fw-bold">@Html.DisplayFor(model => model.Name)</dd>
+
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Status)</dt>
+                        <dd class="col-sm-8">
+                            @if (Model.Status == 1) {
+                                <span class="badge bg-success">Hiển thị</span>
+                            } else {
+                                <span class="badge bg-secondary">Tạm ẩn</span>
+                            }
+                        </dd>
+
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.CreatedDate)</dt>
+                        <dd class="col-sm-8">@Model.CreatedDate.ToString("dd/MM/yyyy HH:mm:ss")</dd>
+                    </dl>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="d-flex gap-2">
+                            <input type="submit" value="Xác nhận xóa" class="btn btn-sm btn-danger px-3" />
+                            <a class="btn btn-sm btn-secondary px-3" asp-action="Index">Hủy bỏ</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

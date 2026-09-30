@@ -1,0 +1,31 @@
+@model HvpLesson12.Models.StdClass
+
+@{
+    ViewData["Title"] = "Xóa lớp học";
+}
+
+<div class="container py-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0">Xác nhận xóa lớp học?</h4>
+                </div>
+                <div class="card-body">
+                    <p class="text-danger">Bạn có chắc chắn muốn xóa lớp học này?</p>
+                    <dl class="row">
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ClassName)</dt>
+                        <dd class="col-sm-8 fw-bold">@Html.DisplayFor(model => model.ClassName)</dd>
+                    </dl>
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="d-flex gap-2">
+                            <input type="submit" value="Xác nhận xóa" class="btn btn-sm btn-danger px-4" />
+                            <a class="btn btn-sm btn-secondary px-3" asp-action="Index">Hủy bỏ</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

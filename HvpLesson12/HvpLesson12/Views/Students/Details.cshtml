@@ -1,0 +1,79 @@
+@model HvpLesson12.Models.Student
+
+@{
+    ViewData["Title"] = "Chi tiết sinh viên";
+}
+
+<div class="container py-3">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">Hồ sơ sinh viên: @Model.StudentName</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3 text-center mb-3">
+                    @if (!string.IsNullOrEmpty(Model.StudentAvatar)) {
+                        <img src="~/Student/@Model.StudentAvatar" alt="@Model.StudentName" class="rounded-circle shadow img-thumbnail mb-2" style="width: 140px; height: 140px; object-fit: cover;" />
+                    } else {
+                        <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mx-auto mb-2" style="width: 140px; height: 140px;">No Avatar</div>
+                    }
+                    <h5 class="fw-bold mb-1">@Model.StudentName</h5>
+                    <span class="badge bg-primary fs-6">@(Model.StdClass?.ClassName ?? "Chưa xếp lớp")</span>
+                </div>
+                <div class="col-md-9">
+                    <dl class="row">
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.StudentEmail)</dt>
+                        <dd class="col-sm-9"><a href="mailto:@Model.StudentEmail">@Model.StudentEmail</a></dd>
+
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.StudentPhone)</dt>
+                        <dd class="col-sm-9">@Model.StudentPhone</dd>
+
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.StudentBirthday)</dt>
+                        <dd class="col-sm-9">@Model.StudentBirthday.ToString("dd/MM/yyyy")</dd>
+
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.StudentAddress)</dt>
+                        <dd class="col-sm-9">@Model.StudentAddress</dd>
+                    </dl>
+
+                    <h5 class="fw-bold mt-4 mb-2 text-secondary">Bảng điểm các môn học:</h5>
+                    @if (Model.Marks != null && Model.Marks.Any())
+                    {
+                        <table class="table table-bordered table-sm align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Môn học</th>
+                                    <th class="text-center" style="width: 120px;">Điểm số</th>
+                                    <th class="text-center" style="width: 120px;">Xếp loại</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var m in Model.Marks)
+                                {
+                                    <tr>
+                                        <td>@(m.Subject?.SubjectName ?? "N/A")</td>
+                                        <td class="text-center fw-bold @(m.Score >= 5 ? "text-success" : "text-danger")">@m.Score</td>
+                                        <td class="text-center">
+                                            @if (m.Score >= 8.5) { <span class="badge bg-success">Giỏi</span> }
+                                            else if (m.Score >= 7) { <span class="badge bg-primary">Khá</span> }
+                                            else if (m.Score >= 5) { <span class="badge bg-warning text-dark">Trung bình</span> }
+                                            else { <span class="badge bg-danger">Yếu</span> }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p class="text-muted small">Sinh viên này chưa có điểm môn học nào.</p>
+                    }
+
+                    <div class="d-flex gap-2 mt-4">
+                        <a class="btn btn-sm btn-primary px-3" asp-action="Edit" asp-route-id="@Model?.Id">Chỉnh sửa</a>
+                        <a class="btn btn-sm btn-secondary px-3" asp-action="Index">Quay lại danh sách</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

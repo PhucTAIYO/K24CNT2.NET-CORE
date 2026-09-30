@@ -1,0 +1,46 @@
+@model HvpLesson12.Models.Marks
+
+@{
+    ViewData["Title"] = "Chỉnh sửa điểm số";
+}
+
+<div class="container py-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Chỉnh sửa điểm số</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" asp-route-subjectId="@Model.SubjectId" asp-route-studentId="@Model.StudentId">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                        <input type="hidden" asp-for="SubjectId" />
+                        <input type="hidden" asp-for="StudentId" />
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Sinh viên</label>
+                            <input class="form-control" value="@(Model.Student?.StudentName)" disabled />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Môn học</label>
+                            <input class="form-control" value="@(Model.Subject?.SubjectName)" disabled />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Score" class="form-label fw-bold"></label>
+                            <input asp-for="Score" class="form-control" type="number" step="0.1" min="0" max="10" />
+                            <span asp-validation-for="Score" class="text-danger"></span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <input type="submit" value="Cập nhật điểm" class="btn btn-sm btn-success px-4" />
+                            <a class="btn btn-sm btn-secondary px-3" asp-action="Index">Quay lại danh sách</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,80 @@
+@model IEnumerable<HvpLesson12.Models.Product>
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+    var categories = ViewBag.Categories as List<HvpLesson12.Models.Category>;
+    int? currentCat = ViewBag.CurrentCategory as int?;
+}
+
+<div class="container py-4">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-dark">Danh sách sản phẩm</h2>
+        <p class="text-muted">Các sản phẩm mới nhất được cập nhật liên tục</p>
+    </div>
+
+    <!-- Category filter buttons -->
+    @if (categories != null && categories.Count > 0)
+    {
+        <div class="d-flex justify-content-center flex-wrap gap-2 mb-4">
+            <a asp-action="Product" asp-route-categoryId="" class="btn btn-sm @(!currentCat.HasValue ? "btn-primary" : "btn-outline-secondary")">
+                Tất cả (@Model.Count())
+            </a>
+            @foreach (var cat in categories)
+            {
+                <a asp-action="Product" asp-route-categoryId="@cat.Id" class="btn btn-sm @(currentCat == cat.Id ? "btn-primary" : "btn-outline-secondary")">
+                    @cat.Name
+                </a>
+            }
+        </div>
+    }
+
+    <!-- Grid 4 columns matching lab Page 22 -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 product-card text-center p-2">
+                    <div class="overflow-hidden rounded" style="height: 200px; background-color: #f1f5f9;">
+                        @if (!string.IsNullOrEmpty(item.Image))
+                        {
+                            <img src="~/Product/@item.Image" class="card-img-top w-100 h-100" alt="@item.Name" style="object-fit: cover;" onerror="this.src='/images/no-image.png';" />
+                        }
+                        else
+                        {
+                            <div class="w-100 h-100 d-flex align-items-center justify-content-center text-muted">
+                                <span>No Image</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="card-body px-2 py-3 d-flex flex-column">
+                        <h6 class="card-title fw-bold text-truncate mb-2" title="@item.Name">@item.Name</h6>
+                        <div class="mb-2">
+                            <span class="badge bg-light text-dark border">@(item.Category?.Name ?? "Khác")</span>
+                        </div>
+                        <div class="mt-auto">
+                            @if (item.SalePrice > 0 && item.SalePrice < item.Price)
+                            {
+                                <div class="text-danger fw-bold">@item.SalePrice.ToString("N0") VNĐ</div>
+                                <small class="text-muted text-decoration-line-through">@item.Price.ToString("N0") VNĐ</small>
+                            }
+                            else
+                            {
+                                <div class="text-primary fw-bold">@item.Price.ToString("N0") VNĐ</div>
+                            }
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0 pt-0 pb-2">
+                        <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-dark w-100">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="text-center py-5">
+            <h5 class="text-muted">Chưa có sản phẩm nào trong danh mục này.</h5>
+        </div>
+    }
+</div>

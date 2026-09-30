@@ -1,0 +1,59 @@
+@model IEnumerable<HvpLesson12.Models.Student>
+
+@{
+    ViewData["Title"] = "Danh sách sinh viên";
+}
+
+<div class="container py-3">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fw-bold text-dark">Quản lý Sinh viên (Student)</h2>
+        <a class="btn btn-sm btn-success px-3" asp-action="Create">
+            <i class="bi bi-plus-circle"></i> Thêm sinh viên mới
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="text-center">Avatar</th>
+                            <th>@Html.DisplayNameFor(model => model.StudentName)</th>
+                            <th>@Html.DisplayNameFor(model => model.StudentEmail)</th>
+                            <th>@Html.DisplayNameFor(model => model.StudentPhone)</th>
+                            <th>@Html.DisplayNameFor(model => model.StudentAddress)</th>
+                            <th>@Html.DisplayNameFor(model => model.StudentBirthday)</th>
+                            <th>@Html.DisplayNameFor(model => model.StdClass)</th>
+                            <th class="text-center" style="width: 220px;">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model) {
+                        <tr>
+                            <td class="text-center">
+                                @if (!string.IsNullOrEmpty(item.StudentAvatar)) {
+                                    <img src="~/Student/@item.StudentAvatar" alt="@item.StudentName" class="rounded-circle shadow-sm" style="width: 45px; height: 45px; object-fit: cover;" onerror="this.src='/images/no-avatar.png';" />
+                                } else {
+                                    <span class="badge bg-secondary">No Avatar</span>
+                                }
+                            </td>
+                            <td class="fw-bold text-dark">@Html.DisplayFor(modelItem => item.StudentName)</td>
+                            <td><a href="mailto:@item.StudentEmail" class="text-decoration-none">@item.StudentEmail</a></td>
+                            <td>@item.StudentPhone</td>
+                            <td>@item.StudentAddress</td>
+                            <td>@item.StudentBirthday.ToString("dd/MM/yyyy")</td>
+                            <td><span class="badge bg-primary">@(item.StdClass?.ClassName ?? "Chưa xếp lớp")</span></td>
+                            <td class="text-center">
+                                <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                <a class="btn btn-sm btn-success" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                                <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

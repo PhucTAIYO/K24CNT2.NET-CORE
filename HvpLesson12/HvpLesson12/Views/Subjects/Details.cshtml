@@ -1,0 +1,56 @@
+@model HvpLesson12.Models.Subjects
+
+@{
+    ViewData["Title"] = "Chi tiết môn học";
+}
+
+<div class="container py-3">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">Môn học: @Model.SubjectName</h4>
+                </div>
+                <div class="card-body">
+                    <dl class="row mb-4">
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Id)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Id)</dd>
+
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.SubjectName)</dt>
+                        <dd class="col-sm-8 fw-bold">@Html.DisplayFor(model => model.SubjectName)</dd>
+
+                        <dt class="col-sm-4">Số lượng bảng điểm</dt>
+                        <dd class="col-sm-8"><span class="badge bg-primary">@(Model.Marks?.Count ?? 0)</span></dd>
+                    </dl>
+
+                    @if (Model.Marks != null && Model.Marks.Any())
+                    {
+                        <h6 class="fw-bold">Điểm sinh viên ở môn này:</h6>
+                        <table class="table table-sm table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Sinh viên</th>
+                                    <th>Điểm số</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var m in Model.Marks)
+                                {
+                                    <tr>
+                                        <td>@(m.Student?.StudentName ?? "N/A")</td>
+                                        <td class="fw-bold @(m.Score >= 5 ? "text-success" : "text-danger")">@m.Score</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+
+                    <div class="d-flex gap-2">
+                        <a class="btn btn-sm btn-primary px-3" asp-action="Edit" asp-route-id="@Model?.Id">Chỉnh sửa</a>
+                        <a class="btn btn-sm btn-secondary px-3" asp-action="Index">Quay lại danh sách</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

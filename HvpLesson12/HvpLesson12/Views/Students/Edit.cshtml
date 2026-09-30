@@ -1,0 +1,75 @@
+@model HvpLesson12.Models.Student
+
+@{
+    ViewData["Title"] = "Chỉnh sửa sinh viên";
+}
+
+<div class="container py-3">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Chỉnh sửa thông tin sinh viên</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="StudentAvatar" />
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="StudentName" class="form-label fw-bold"></label>
+                            <input asp-for="StudentName" class="form-control" />
+                            <span asp-validation-for="StudentName" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="StudentEmail" class="form-label fw-bold"></label>
+                            <input asp-for="StudentEmail" type="email" class="form-control" />
+                            <span asp-validation-for="StudentEmail" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="StudentPhone" class="form-label fw-bold"></label>
+                            <input asp-for="StudentPhone" class="form-control" />
+                            <span asp-validation-for="StudentPhone" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Ảnh hiện tại</label>
+                            <div class="mb-2">
+                                @if (!string.IsNullOrEmpty(Model.StudentAvatar)) {
+                                    <img src="~/Student/@Model.StudentAvatar" alt="@Model.StudentName" class="rounded-circle shadow-sm" style="width: 70px; height: 70px; object-fit: cover;" />
+                                }
+                            </div>
+                            <label class="form-label fw-bold">Thay đổi ảnh đại diện</label>
+                            <input type="file" name="file" class="form-control" accept="image/*" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="ClassId" class="form-label fw-bold"></label>
+                            <select asp-for="ClassId" class="form-select" asp-items="ViewBag.ClassId"></select>
+                            <span asp-validation-for="ClassId" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="StudentBirthday" class="form-label fw-bold"></label>
+                            <input asp-for="StudentBirthday" type="date" class="form-control" value="@Model.StudentBirthday.ToString("yyyy-MM-dd")" />
+                            <span asp-validation-for="StudentBirthday" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="StudentAddress" class="form-label fw-bold"></label>
+                            <textarea asp-for="StudentAddress" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="StudentAddress" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                    <input type="submit" value="Cập nhật" class="btn btn-sm btn-success px-4" />
+                    <a class="btn btn-sm btn-secondary px-3" asp-action="Index">Quay lại danh sách</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

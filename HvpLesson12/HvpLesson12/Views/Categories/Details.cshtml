@@ -1,0 +1,45 @@
+@model HvpLesson12.Models.Category
+
+@{
+    ViewData["Title"] = "Chi tiết danh mục";
+}
+
+<div class="container py-3">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">Chi tiết danh mục</h4>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Id)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Id)</dd>
+
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Name)</dt>
+                        <dd class="col-sm-8 fw-bold">@Html.DisplayFor(model => model.Name)</dd>
+
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Status)</dt>
+                        <dd class="col-sm-8">
+                            @if (Model.Status == 1) {
+                                <span class="badge bg-success">Hiển thị</span>
+                            } else {
+                                <span class="badge bg-secondary">Tạm ẩn</span>
+                            }
+                        </dd>
+
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.CreatedDate)</dt>
+                        <dd class="col-sm-8">@Model.CreatedDate.ToString("dd/MM/yyyy HH:mm:ss")</dd>
+
+                        <dt class="col-sm-4">Số lượng sản phẩm</dt>
+                        <dd class="col-sm-8"><span class="badge bg-primary">@(Model.Products?.Count ?? 0)</span></dd>
+                    </dl>
+                    <div class="d-flex gap-2">
+                        <a class="btn btn-sm btn-primary px-3" asp-action="Edit" asp-route-id="@Model?.Id">Chỉnh sửa</a>
+                        <a class="btn btn-sm btn-secondary px-3" asp-action="Index">Quay lại danh sách</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

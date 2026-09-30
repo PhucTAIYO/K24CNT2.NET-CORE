@@ -1,0 +1,41 @@
+@model HvpLesson12.Models.Marks
+
+@{
+    ViewData["Title"] = "Chi tiết điểm số";
+}
+
+<div class="container py-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">Chi tiết điểm sinh viên</h4>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Student)</dt>
+                        <dd class="col-sm-8 fw-bold fs-5 text-primary">@(Model.Student?.StudentName ?? "N/A")</dd>
+
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Subject)</dt>
+                        <dd class="col-sm-8 fw-bold">@(Model.Subject?.SubjectName ?? "N/A")</dd>
+
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Score)</dt>
+                        <dd class="col-sm-8 fw-bold fs-4 @(Model.Score >= 5 ? "text-success" : "text-danger")">@Model.Score</dd>
+
+                        <dt class="col-sm-4">Xếp loại</dt>
+                        <dd class="col-sm-8">
+                            @if (Model.Score >= 8.5) { <span class="badge bg-success fs-6">Giỏi</span> }
+                            else if (Model.Score >= 7) { <span class="badge bg-primary fs-6">Khá</span> }
+                            else if (Model.Score >= 5) { <span class="badge bg-warning text-dark fs-6">Trung bình</span> }
+                            else { <span class="badge bg-danger fs-6">Yếu</span> }
+                        </dd>
+                    </dl>
+                    <div class="d-flex gap-2 mt-4">
+                        <a class="btn btn-sm btn-primary px-3" asp-action="Edit" asp-route-subjectId="@Model.SubjectId" asp-route-studentId="@Model.StudentId">Chỉnh sửa</a>
+                        <a class="btn btn-sm btn-secondary px-3" asp-action="Index">Quay lại</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+@model HvpLesson12.Models.StdClass
+
+@{
+    ViewData["Title"] = "Chi tiết lớp học";
+}
+
+<div class="container py-3">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">Chi tiết lớp: @Model.ClassName</h4>
+                </div>
+                <div class="card-body">
+                    <dl class="row mb-4">
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Id)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Id)</dd>
+
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ClassName)</dt>
+                        <dd class="col-sm-8 fw-bold">@Html.DisplayFor(model => model.ClassName)</dd>
+
+                        <dt class="col-sm-4">Tổng số sinh viên</dt>
+                        <dd class="col-sm-8"><span class="badge bg-primary">@(Model.Students?.Count ?? 0)</span></dd>
+                    </dl>
+
+                    @if (Model.Students != null && Model.Students.Any())
+                    {
+                        <h6 class="fw-bold">Danh sách sinh viên trong lớp:</h6>
+                        <ul class="list-group mb-4">
+                            @foreach (var student in Model.Students)
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="fw-semibold">@student.StudentName</span>
+                                        <span class="text-muted small ms-2">(@student.StudentEmail)</span>
+                                    </div>
+                                    <a class="btn btn-sm btn-outline-info" asp-controller="Students" asp-action="Details" asp-route-id="@student.Id">Xem</a>
+                                </li>
+                            }
+                        </ul>
+                    }
+
+                    <div class="d-flex gap-2">
+                        <a class="btn btn-sm btn-primary px-3" asp-action="Edit" asp-route-id="@Model?.Id">Chỉnh sửa</a>
+                        <a class="btn btn-sm btn-secondary px-3" asp-action="Index">Quay lại</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
