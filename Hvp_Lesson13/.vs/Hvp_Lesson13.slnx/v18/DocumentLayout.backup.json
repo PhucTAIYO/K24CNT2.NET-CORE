@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\K24CNT2.NET-CORE\\Hvp_Lesson13\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EC255814-1A94-640F-097A-815D233ED15D}|Hvp_Lesson13\\Hvp_Lesson13.csproj|d:\\k24cnt2.net-core\\hvp_lesson13\\hvp_lesson13\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC255814-1A94-640F-097A-815D233ED15D}|Hvp_Lesson13\\Hvp_Lesson13.csproj|solutionrelative:hvp_lesson13\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\K24CNT2.NET-CORE\\Hvp_Lesson13\\Hvp_Lesson13\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Hvp_Lesson13\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\K24CNT2.NET-CORE\\Hvp_Lesson13\\Hvp_Lesson13\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Hvp_Lesson13\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-02T04:09:46.736Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
