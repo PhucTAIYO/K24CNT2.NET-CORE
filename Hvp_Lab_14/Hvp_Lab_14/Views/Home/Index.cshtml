@@ -1,0 +1,124 @@
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<!-- BEGIN BANNER -->
+<div class="wrapper bgded overlay" style="background-image:url('/images/backgrounds/01.png');">
+    <div id="pageintro" class="hoc clear">
+        <article>
+            <p>Chào mừng bạn đến với website cá nhân</p>
+            <h3 class="heading">Hoàng Văn Phúc - K24CNT2</h3>
+            <p>Mã số sinh viên: 2410900061 - Bài thực hành ASP.NET Core MVC</p>
+            <footer><a class="btn" asp-controller="Home" asp-action="About">Tìm hiểu thêm</a></footer>
+        </article>
+    </div>
+</div>
+<!-- END BANNER -->
+
+<!-- BEGIN MAIN -->
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <!-- main body -->
+        <section id="introblocks">
+            <div class="sectiontitle">
+                <h6 class="heading">Những điểm nổi bật của website</h6>
+                <p>Website được xây dựng theo bài thực hành Tìm hiểu về Layout trong ASP.NET Core MVC</p>
+            </div>
+            <ul class="nospace group">
+                <li class="one_third first">
+                    <article>
+                        <a href="#"><i class="fas fa-allergies"></i></a>
+                        <h6 class="heading">Giao diện thân thiện</h6>
+                        <p>Trang chủ được thiết kế theo template mẫu với bố cục rõ ràng, dễ nhìn và thân thiện với người dùng [&hellip;]</p>
+                        <footer><a class="btn" href="#">Xem thêm</a></footer>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article>
+                        <a href="#"><i class="fas fa-cube"></i></a>
+                        <h6 class="heading">Layout dùng chung</h6>
+                        <p>Toàn bộ trang người dùng sử dụng chung layout _main, giúp giao diện thống nhất và thuận tiện bảo trì [&hellip;]</p>
+                        <footer><a class="btn" href="#">Xem thêm</a></footer>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article>
+                        <a href="#"><i class="fas fa-podcast"></i></a>
+                        <h6 class="heading">Khu vực quản trị</h6>
+                        <p>Khu vực quản trị riêng với Area Admin gồm trang bảng điều khiển và trang quản lý danh mục [&hellip;]</p>
+                        <footer><a class="btn" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Xem thêm</a></footer>
+                    </article>
+                </li>
+            </ul>
+        </section>
+
+        <hr class="btmspace-80">
+
+        <section>
+            <div class="sectiontitle">
+                <h6 class="heading">Nội dung thực hành</h6>
+                <p>Các nội dung chính đã thực hiện trong bài thực hành 07</p>
+            </div>
+            <ul class="nospace group overview">
+                <li class="one_third">
+                    <figure>
+                        <a href="#"><img src="~/images/348x261.png" alt=""></a>
+                        <figcaption>
+                            <h6 class="heading">Tìm hiểu về Layout</h6>
+                            <p>Tìm hiểu các tệp _Layout, _ViewImports và _ViewStart trong ASP.NET Core MVC.</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="one_third">
+                    <figure>
+                        <a href="#"><img src="~/images/348x261.png" alt=""></a>
+                        <figcaption>
+                            <h6 class="heading">Layout tùy chỉnh _main</h6>
+                            <p>Xây dựng layout riêng cho trang người dùng theo template mẫu của bài thực hành.</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="one_third">
+                    <figure>
+                        <a href="#"><img src="~/images/348x261.png" alt=""></a>
+                        <figcaption>
+                            <h6 class="heading">Tạo Area Admin</h6>
+                            <p>Tổ chức khu vực quản trị riêng biệt bằng Area trong dự án MVC.</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="one_third">
+                    <figure>
+                        <a href="#"><img src="~/images/348x261.png" alt=""></a>
+                        <figcaption>
+                            <h6 class="heading">Trang bảng điều khiển</h6>
+                            <p>Xây dựng trang chủ của khu vực quản trị trong Area Admin.</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="one_third">
+                    <figure>
+                        <a href="#"><img src="~/images/348x261.png" alt=""></a>
+                        <figcaption>
+                            <h6 class="heading">Trang quản lý danh mục</h6>
+                            <p>Xây dựng trang danh sách danh mục trong khu vực quản trị.</p>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="one_third">
+                    <figure>
+                        <a href="#"><img src="~/images/348x261.png" alt=""></a>
+                        <figcaption>
+                            <h6 class="heading">Trang giới thiệu và liên hệ</h6>
+                            <p>Các trang tĩnh giới thiệu thông tin sinh viên và thông tin liên hệ.</p>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </section>
+
+        <!-- / main body -->
+        <div class="clear"></div>
+    </main>
+</div>
+<!-- END MAIN -->

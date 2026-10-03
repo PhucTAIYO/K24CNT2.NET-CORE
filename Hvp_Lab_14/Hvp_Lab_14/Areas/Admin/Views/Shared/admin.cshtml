@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Trang quản trị</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    @RenderSection("Css", required: false)
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Trang quản trị</a>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Bảng điều khiển</a></li>
+                <li class="nav-item"><a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Index">Danh mục</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-3">
+        @RenderBody()
+    </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Hvp_Lab_14</title>
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/template.css" asp-append-version="true" />
+    @RenderSection("Css", required: false)
+</head>
+<body>
+    <div class="topbar">
+        <div class="hoc clear">
+            <ul class="nospace inline">
+                <li><i class="fas fa-phone"></i> 0978.611.889</li>
+                <li><i class="fas fa-envelope"></i> support&#64;hvplab14.edu.vn</li>
+            </ul>
+            <ul class="nospace inline fright">
+                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" title="Youtube"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header class="siteheader">
+        <div class="hoc clear">
+            <div id="logo">
+                <h1><a asp-controller="Home" asp-action="Index">HVP<span>Lab14</span></a></h1>
+            </div>
+            <nav id="mainav">
+                <ul class="clear">
+                    <li><a asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                    <li><a asp-controller="Home" asp-action="About">Giới thiệu</a></li>
+                    <li><a asp-controller="Home" asp-action="Contact">Liên hệ</a></li>
+                    <li><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Quản trị</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <footer class="sitefooter">
+        <div class="hoc clear">
+            <p class="center">Copyright &copy; 2026 - Hoàng Văn Phúc - K24CNT2 - 2410900061 | Bài thực hành ASP.NET Core MVC</p>
+            <p class="center"><a asp-area="" asp-controller="Home" asp-action="Privacy">Chính sách bảo mật</a></p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

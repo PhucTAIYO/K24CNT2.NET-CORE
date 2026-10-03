@@ -1,0 +1,31 @@
+@model ErrorViewModel
+@{
+    ViewData["Title"] = "Lỗi";
+}
+
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <div class="sectiontitle">
+            <h6 class="heading">Đã xảy ra lỗi</h6>
+            <p>Rất tiếc, đã có lỗi xảy ra trong quá trình xử lý yêu cầu của bạn.</p>
+        </div>
+
+        @if (Model.ShowRequestId)
+        {
+            <p>
+                <strong>Mã yêu cầu:</strong> <code>@Model.RequestId</code>
+            </p>
+        }
+
+        <h3>Chế độ phát triển</h3>
+        <p>
+            Chuyển sang môi trường <strong>Development</strong> sẽ hiển thị thông tin chi tiết hơn về lỗi đã xảy ra.
+        </p>
+        <p>
+            <strong>Không nên bật môi trường Development cho ứng dụng đã triển khai.</strong>
+            Điều này có thể dẫn đến việc hiển thị thông tin nhạy cảm từ ngoại lệ cho người dùng cuối.
+            Để gỡ lỗi cục bộ, hãy bật môi trường <strong>Development</strong> bằng cách đặt biến môi trường
+            <strong>ASPNETCORE_ENVIRONMENT</strong> thành <strong>Development</strong> và khởi động lại ứng dụng.
+        </p>
+    </main>
+</div>
